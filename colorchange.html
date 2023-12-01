@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Change</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fontfaceobserver/2.3.0/fontfaceobserver.standalone.js">
+
+    <style>      
+          @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300&family=Poppins:wght@500&display=swap');
+          :root{
+            --main-color:#2980b9;
+            --black:#444;
+            --bg:#fff;
+            --light-bg:#eee;
+            --light-color:#666;
+            --bprder:1px solid rgba(0,0,0,.1);
+            --box-shadow:0 5px 10px rgba(0,0,0,.1;)
+          }
+        *{
+            font-family: 'Barlow', sans-serif;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            text-transform: capitalize;
+            transition: 2s linear;
+        }
+        
+        body{
+            background: var(--light-bg);
+        }
+
+        .theme-container{
+            position: fixed;
+            top: 0;
+            right: 0;
+            background: var(--bg);
+            border-left: var(--border);
+            height: 100vh;
+            width: 350px;
+            z-index: 1000;
+            text-align: right;
+            padding: 20px;
+
+        }
+        .theme-container #theme-color{
+            font-size: 40px;
+            color: var(--black);
+            cursor: pointer;
+        }
+        .theme-container h3{
+            text-align: center;
+            color: var(--black);
+            border-top:var(--border) ;
+            border-bottom: var(--border);
+            padding: 15px 0;
+            margin: 20px 0;
+        }
+        .theme-container .theme-toggler{
+            display: flex;
+            align-items: centre;
+            justify-content: center;
+        }
+        .theme-container .theme-toggler span{
+            color: var(--light-color);
+        }
+        .themes-container .theme-toggler .toggler{
+         height:40px;
+         width:100px;
+         border-radius: 50px;
+         background:var(--light-bg);
+         position: relative;
+         cursor: pointer;
+         border:var(--border);
+         margin:0 10px;
+        }
+        .themes-container .theme-toggler.active .toggler::before{
+          left:65px;
+        }
+
+       .themes-container .theme-colors{
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: center;
+         gap:15px;
+       }
+      
+      .themes-container .theme-colors .color{
+        border-radius: 5px;
+        height:50px;
+        width:50px;
+        cursor: pointer;
+      }
+
+      .themes-container .theme-colors .color:hover{
+        opacity: .5;
+      }
+
+      .container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 60px;
+        margin:10px;
+        min-height: 100vh;
+      }
+
+      .container .content{      
+        background: var(--bg);
+        border-radius: 5px;
+        padding:20px;
+        box-shadow: var(--box-shadow);
+              border:var(--border);
+        text-align: center;
+        width:400px;
+      }
+
+      .container .content img{
+        width:100%;
+        margin-bottom: 10px;
+        border-radius: 5px;
+      }
+
+      .container .content h3{
+        color:var(--black);
+        font-size: 25px;
+      }
+
+      .container .content p{
+        color:var(--light-color);
+        font-size: 15px;
+        line-height: 2;
+        padding:10px 0;
+      }
+
+      .container .content .btn{
+        margin-top: 10px;
+        display: inline-block;
+        border-radius: 5px;
+        padding:10px 30px;
+        color:#fff;
+        background: var(--main-color);
+        font-size: 17px;
+      }
+
+      .container .content .btn:hover{
+        opacity: .8;
+        letter-spacing: 1px;
+      }
+    </style>
+</head>
+<body>
+    <div class="theme-container">
+        <div id="theme-color" class="first"></div>
+
+        <h3>switch theme</h3>
+        <div class="theme-toggler">
+            <span>light</span>
+            <span class="toggler"></span>
+            <span>dark</span>
+        </div>
+        <h3>pick a color</h3>
+        <div class="theme color">
+            <div class="colors" style="background: #2980b9;"></div>
+            <div class="colors" style="background: #27ae60;"></div>
+            <div class="colors" style="background: #ffa502;"></div>
+            <div class="colors" style="background: #8e44ad;"></div>
+            <div class="colors" style="background: #0fb9b1;"></div>
+            <div class="colors" style="background: #ffd32a;"></div>
+            <div class="colors" style="background: #ff0033;"></div>
+            <div class="colors" style="background: #e84393;"></div>
+        </div>
+         
+        <div class="container">
+        <div class="content">
+        <img src="https://www.google.com/search?q=kitten&sca_esv=571701597&rlz=1C1VDKB_en-GBPK1069PK1069&sxsrf=AM9HkKlmvY5lGpEygZduJFGUDalqdWJQMw:1696762827520&tbm=isch&source=iu&ictx=1&vet=1&fir=istYcz98GWn1rM%252Cxx9Is_ftEERpBM%252C%252Fm%252F0hjzp%253BCadMDFZJgrOQUM%252CQXieX9PG3E_RrM%252C_%253B5UKE_ztEeyAg2M%252CdTDdan6TWTOO-M%252C_%253B3vycl1qay6rSWM%252CiGTmhIjmUPO39M%252C_%253Bn1hYv6n3s5HcgM%252CyXOxtPcXyX9HrM%252C_%253B6o9bvvR-Dw5LQM%252CnWAFjQIBfLXnWM%252C_&usg=AI4_-kQeHAMn0nE0SnkjS7vlE8zCWMlo6g&sa=X&ved=2ahUKEwiKveiMpuaBAxVGiP0HHVPjCvsQ_B16BAhTEAE#imgrc=istYcz98GWn1rM" alt="">
+        <h3>some text heading</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, atque?</p>
+        <a href="#" class="btn">read more</a>
+        </div>
+        </div>
+   </div>
+   <script>
+      let themeToggler = document.querySelector('.theme-toggler');
+      themeToggler.onclick = () =>{
+      themeToggler.classList.toggle('active');
+
+      if(themeToggler.classList.contains('active')){
+        document.body.classList.add('active');
+      }else{
+        document.body.classList.remove('active');
+      }
+     }
+
+      document.querySelectorAll('.theme-colors .color').forEach(color =>{
+      color.onclick = () => {
+        let background = color.style.background;
+        document.querySelector(':root').style.setProperty('--main-color', background);
+      }
+     }); 
+
+     let theme = document.querySelector('.themes-container');
+
+     document.querySelector('#theme-open').onclick = () =>{
+     theme.classList.add('active');
+     document.body.style.paddingRight = '350px';
+     }
+
+     document.querySelector('#theme-close').onclick = () =>{
+     theme.classList.remove('active');
+     document.body.style.paddingRight = '0px';
+     }
+   </script>
+</body>
+</html>
